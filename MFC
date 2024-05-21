@@ -1,0 +1,33 @@
+void CMyView::OnDraw(CDC* pDC)
+{
+    // 점 그리기
+    pDC->SetPixel(50, 50, RGB(255, 0, 0));
+
+    // 선 그리기
+    pDC->MoveTo(100, 100);
+    pDC->LineTo(200, 200);
+
+    // 직사각형 그리기
+    pDC->Rectangle(250, 100, 350, 200);
+
+    // 타원 그리기
+    pDC->Ellipse(400, 100, 500, 200);
+
+    // 원호 그리기
+    pDC->Arc(CRect(550, 100, 650, 200), CPoint(550, 150), CPoint(650, 150));
+
+    // 다각형 그리기
+    POINT points[] = { {700, 100}, {750, 150}, {700, 200}, {650, 150} };
+    pDC->Polygon(points, 4);
+
+    // 폴리라인 그리기
+    POINT linePoints[] = { {800, 100}, {850, 150}, {800, 200}, {750, 150} };
+    pDC->Polyline(linePoints, 4);
+
+    // 라운드 직사각형 그리기
+    pDC->RoundRect(CRect(900, 100, 1000, 200), CPoint(20, 20));
+
+    // 베지어 곡선 그리기
+    POINT bezierPoints[] = { {1050, 100}, {1100, 50}, {1150, 150}, {1200, 100} };
+    pDC->PolyBezier(bezierPoints, 4);
+}
